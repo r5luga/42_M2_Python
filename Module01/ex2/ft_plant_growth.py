@@ -5,6 +5,8 @@ class Plant:
         self.name = name
         self.height = height
         self.age = age
+        self.initialheight = height
+        self.initialage = age
     def show(self):
         print(f"{self.name}: {round(self.height, 1)}cm, {self.age} days old")
     def grow(self, height):
@@ -19,7 +21,6 @@ if __name__ == "__main__":
     
 # Simulate 7 days of growth
     daily_growth = 0.8   # cm per day
-    initial_height = plant.height
 
     for day in range(1, 8):
         plant.grow(daily_growth)
@@ -27,5 +28,5 @@ if __name__ == "__main__":
         print(f"=== Day {day} ===")
         plant.show()
     
-    total_increase = plant.height - initial_height
+    total_increase = plant.height - plant.initialheight
     print(f"Growth this week: {round(total_increase, 1)}cm")
