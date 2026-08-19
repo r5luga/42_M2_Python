@@ -6,25 +6,26 @@ class Plant:
         self.height = height
         self.age = age
     def show(self):
-        print(f"{self.name}: {self.height}cm, {self.age} days old")
+        print(f"{self.name}: {round(self.height, 1)}cm, {self.age} days old")
     def grow(self, height):
         self.height += height
     def older(self, age):
         self.age += age
 
 if __name__ == "__main__":
-    print("=== Garden Plant Registry ===")
-    rose = Plant("Rose", 25, 30)
-    rose.show()
-    sunflower = Plant("Sunflower", 80, 45)
-    sunflower.show()
-    cactus = Plant("Cactus", 15, 120)
-    cactus.show()
-    
-    rose.grow(0.2)
-    rose.older(1)
-    
     print("=== Garden Plant Growth ===")
-    rose.show()
-    sunflower.show()
-    cactus.show()
+    plant = Plant("Rose", 25, 30)
+    plant.show()
+    
+# Simulate 7 days of growth
+    daily_growth = 0.8   # cm per day
+    initial_height = plant.height
+
+    for day in range(1, 8):
+        plant.grow(daily_growth)
+        plant.older(1)
+        print(f"=== Day {day} ===")
+        plant.show()
+    
+    total_increase = plant.height - initial_height
+    print(f"Growth this week: {round(total_increase, 1)}cm")
