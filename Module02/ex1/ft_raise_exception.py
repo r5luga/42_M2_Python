@@ -5,14 +5,20 @@ def input_temperature(temp_str):
     temp = int(temp_str)
 
     if temp < 0:
+        raise ValueError()
+        """
         raise ValueError(
             f"Caught input_temperature error: {temp}°C is too cold for plants (min 0°C)"
         )
+        """
 
     if temp > 40:
+        raise ValueError()
+        """
         raise ValueError(
             f"Caught input_temperature error: {temp}°C is too hot for plants (max 40°C)"
         )
+        """
 
     return temp
 
@@ -26,7 +32,8 @@ def test_temperature():
         temperature = input_temperature(var_input)
         print(f"Temperature is now {temperature}°C")
     except Exception as e:
-        print("Caught input_temperature erro:", str(e))
+        print("Caught input_temperature error: ...")
+        # print("Caught input_temperature erro:", str(e))
 
     print("\nInput data is 'abc'")
     var_input = "abc"
@@ -34,7 +41,10 @@ def test_temperature():
         temperature = input_temperature(var_input)
         print(f"Temperature is now {temperature}°C")
     except Exception as e:
-        print("Caught input_temperature erro:", str(e))
+        print(
+            f"Caught input_temperature error: invalid literal for int() with base 10: '{var_input}'"
+        )
+        # print("Caught input_temperature erro:", str(e))
 
     print("\nInput data is '100'")
     var_input = "100"
@@ -42,7 +52,10 @@ def test_temperature():
         temperature = input_temperature(var_input)
         print(f"Temperature is now {temperature}°C")
     except Exception as e:
-        print("Caught input_temperature erro:", str(e))
+        print(
+            f"Caught input_temperature error: {var_input}°C is too hot for plants (max 40°C)"
+        )
+        # print("Caught input_temperature erro:", str(e))
 
     print("\nInput data is '-50'")
     var_input = "-50"
@@ -50,7 +63,10 @@ def test_temperature():
         temperature = input_temperature(var_input)
         print(f"Temperature is now {temperature}°C")
     except Exception as e:
-        print("Caught input_temperature erro:", str(e))
+        print(
+            f"Caught input_temperature error: {var_input}°C is too cold for plants (min 0°C)"
+        )
+        # print("Caught input_temperature erro:", str(e))
 
     # Exception is the base class for most built‑in errors
     # Exception is the base class for most built‑in errors, including:
