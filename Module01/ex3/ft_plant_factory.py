@@ -32,8 +32,8 @@ def create_plants(plant_list: list[dict]) -> list:
         new_plants += [Plant(plant['name'], plant['height'], plant['age'])]
         # new_plants.append(Plant(**plant))
     return new_plants
-    # return [Plant(plant['name'],
-    # plant['height'], plant['age']) for plant in plant_list]
+    # return [Plant(plant['name'], plant['height'],
+    # plant['age']) for plant in plant_list]
 
 
 if __name__ == "__main__":

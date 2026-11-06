@@ -2,7 +2,7 @@
 
 class Plant:
     class Stats:
-        def __init__(self, plant):
+        def __init__(self, plant) -> None:
             self._plant = plant
             self._grow_calls = 0
             self._age_calls = 0
