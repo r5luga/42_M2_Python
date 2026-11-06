@@ -1,28 +1,40 @@
 #!/usr/bin/env python3
 
 class Plant:
-    def __init__(self, name, height, age):
+    def __init__(self, name: str, height: float, age: int) -> None:
+
         self.name = name
         self.height = height
         self.age = age
         self.initialheight = height
         self.initialage = age
-    def show(self):
-        print(f"{self.name}: {round(self.height, 1):.1f}cm, {self.age} days old")
-    def __str__(self):
+
+    def show(self) -> None:
+        print(
+            f"{self.name}: "
+            f"{round(self.height, 1):.1f}cm, "
+            f"{self.age} days old"
+        )
+
+    def __str__(self) -> str:
         return f"{self.name}: {self.height:.1f}cm, {self.age} days old"
-    def grow(self, height):
+
+    def grow(self, height: float) -> None:
         self.height += height
-    def older(self, age):
+
+    def older(self, age: int) -> None:
         self.age += age
 
-def create_plants(plant_list: list[dict]):
+
+def create_plants(plant_list: list[dict]) -> list:
     new_plants = []
     for plant in plant_list:
         new_plants += [Plant(plant['name'], plant['height'], plant['age'])]
         # new_plants.append(Plant(**plant))
     return new_plants
-    # return [Plant(plant['name'], plant['height'], plant['age']) for plant in plant_list]
+    # return [Plant(plant['name'],
+    # plant['height'], plant['age']) for plant in plant_list]
+
 
 if __name__ == "__main__":
     plants = create_plants([
@@ -31,7 +43,7 @@ if __name__ == "__main__":
         {'name': 'Cactus', 'height': 5, 'age': 90},
         {'name': 'Sunflower', 'height': 80, 'age': 45},
         {'name': 'Fern', 'height': 15, 'age': 120}])
-        
+
     print("=== Plant Factory Output ===")
     for plant in plants:
         print("Created :", end=" ")
